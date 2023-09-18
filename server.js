@@ -3,10 +3,8 @@ const express = require('express');
 const path = require('path');
 
 // Importing API routes
-const api = require('./api/notes.js');
-
-// Linking the database
-const noteData = require('./db/db.json');
+const note_api = require('./routes/notes.js');
+const html_routes = require('./routes/html.js');
 
 // Setting up the port
 const PORT = 3001;
@@ -21,18 +19,9 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to serve static files
 app.use(express.static('public'));
 
-// Send requests with the /api endpoint to the api routes
-app.use('/api', api);
-
-// View route for the home page
-app.get('/', (req, res) => 
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-);
-
-// View route for the notes page
-app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
+// Establishing the routes
+app.use(html_routes);
+app.use(note_api);
 
 // Start the server on the port
 app.listen(PORT, () => console.log(`Booting up on PORT: ${PORT}`));
