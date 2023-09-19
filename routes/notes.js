@@ -37,5 +37,18 @@ note.post('/api/notes', (req, res) => {
     });
 });
 // DELETE route for deleting a note by ID
+note.delete('/api/notes/:id', (req, res) => {
+    fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', (err, data) => {
+        if (err) throw err;
+        let notes = JSON.parse(data);
+        // Filter the notes array to remove the note with the specified ID
+        notes = notes.filter((note) => note.id !== req.params.id);
 
+        // Write the updated notes back to the JSON file
+        fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(notes), (err) => {
+            if (err) throw err;
+            res.json({ msg: 'Note deleted' });
+        });
+    });
+});
 module.exports = note;
