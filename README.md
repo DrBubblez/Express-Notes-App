@@ -2,6 +2,11 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ## Description
 This web application allows users to create, save, and delete notes. The application uses an Express.js back end and saves and retrieves note data from a JSON file.
+## Preview
+
+<img src="./img/note-app-1.PNG" alt="Note App Preview 1" width="500"/>
+<img src="./img/note-app-2.PNG" alt="Note App Preview 2" width="500"/>
+
 ## Webpage
 [Link](https://express-notes-app-512e59dc543c.herokuapp.com/)
 ## Table of Contents
