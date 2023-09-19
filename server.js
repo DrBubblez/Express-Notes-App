@@ -7,7 +7,7 @@ const note_api = require('./routes/notes.js');
 const html_routes = require('./routes/html.js');
 
 // Setting up the port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Create an instance of express
 const app = express();
